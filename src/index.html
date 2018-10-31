@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>make a NoTe</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <link href="https://fonts.googleapis.com/css?family=Mali:400,500,700|Raleway:400,500" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+</head>
+<body>
+  <main>
+    <h1>List of notes</h1>
+    <div class="notes__wrapper">
+      <section class="notes">
+        <h2 class="visually-hidden">Your notes</h2>
+        <div class="note">
+          <h3 class="note__title">My first note</h3>
+          <p class="note__describe">do app note Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita in non, ducimus quos, impedit laboriosam molestias eaque corrupti recusandae adipisci, beatae explicabo deserunt possimus tempore dolorum magni earum enim voluptate.</p>
+          <p class="note__date">25.12.1996</p>
+          <p class="note__time">25h 25m 25s</p>
+        </div>
+        <div class="note">
+          <h3 class="note__title">My first note</h3>
+          <p class="note__describe">do app note Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita in non, ducimus quos, impedit laboriosam molestias eaque corrupti recusandae adipisci, beatae explicabo deserunt possimus tempore dolorum magni earum enim voluptate.</p>
+          <p class="note__date">25.12.1996</p>
+          <p class="note__time">25h 25m 25s</p>
+        </div>
+        <div class="note">
+          <h3 class="note__title">My first note</h3>
+          <p class="note__describe">do app note Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita in non, ducimus quos, impedit laboriosam molestias eaque corrupti recusandae adipisci, beatae explicabo deserunt possimus tempore dolorum magni earum enim voluptate.</p>
+          <p class="note__date">25.12.1996</p>
+          <p class="note__time">25h 25m 25s</p>
+        </div>
+        <div class="note">
+          <h3 class="note__title">My first note</h3>
+          <p class="note__describe">do app note Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita in non, ducimus quos, impedit laboriosam molestias eaque corrupti recusandae adipisci, beatae explicabo deserunt possimus tempore dolorum magni earum enim voluptate.</p>
+          <p class="note__date">25.12.1996</p>
+          <p class="note__time">25h 25m 25s</p>
+        </div>
+      </section>
+
+      <div class="add__note">
+          <button class="add__note_btn">Add Note</button>
+      </div>
+    </div>
+  </main>
+
+   <div class="dialog" role="dialog" aria-labelledby="dialog_title">
+      <div class="dialog__window">
+        <form action="" method="" class="dialog__form" id="addNodeForm">
+          <p>
+            <label>
+              <span class="visually-hidden">Note title</span>
+              <input type="text" placeholder="title">
+            </label>
+          </p>
+          <p>
+            <textarea name="textnote" form="addNodeForm"></textarea>
+          </p>
+          <button class="modal__btn-add" type="submit">Add</button>
+          <button class="modal__btn-close" type="button">Close</button>
+        </form>
+      </div>
+      <div class="dialog__mask"></div>
+    </div>
+
+<script src="js/database.js"></script>
+<script src="../node_modules/wicg-inert/dist/inert.min.js"></script>
+<script src="js/modal.js"></script>
+</body>
+</html>

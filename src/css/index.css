@@ -1,0 +1,144 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  background: #ffd200;
+ /* background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);*/
+  font-family: 'Raleway', sans-serif;
+  font-size: 1em;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  font-family: 'Raleway', sans-serif;
+}
+
+button {
+  padding: 10px;
+  background: #000;
+  border: 2px solid #fff;
+  border-radius: 5px;
+
+  color: #fff;
+
+  transition: 0.3s linear all;
+}
+
+button:hover,
+button:focus {
+  cursor: pointer;
+  background: #fff;
+  color: #000;
+   border-color: #000;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important; 
+  width: 1px !important; 
+  overflow: hidden;
+}
+
+.notes__wrapper {
+  margin: 50px 0;
+}
+
+.notes {
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border: 1px solid #000; 
+}
+
+.note {
+  max-width: 30%;
+  margin-right: 5px;
+  margin-left: 0;
+}
+
+.note p {
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+
+.note__title {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.note__describe {
+  font-family: 'Mali', cursive;
+}
+
+.note__date, .note__time {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.add__note {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+/*auth.html*/
+.auth__title {
+  text-align: center;
+}
+.auth__form {
+  width: 50%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.auth__form p {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.labal__email, .label__password {
+  margin-right: 10px;
+
+  font-size: 1.5em;
+  vertical-align: middle;
+}
+
+.auth__form input {
+  min-width: 200px;
+  padding: 10px;
+
+  border: 2px solid #000;
+  border-radius: 5px;
+  outline-style: none;
+  background: #000;
+  color: #fff;
+
+  transition: 0.3s linear all;
+}
+
+.auth__form input:hover,
+.auth__form input:focus {
+  border-color: #fff;
+}
