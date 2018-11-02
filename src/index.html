@@ -7,38 +7,22 @@
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/modal.css">
   <link href="https://fonts.googleapis.com/css?family=Mali:400,500,700|Raleway:400,500" rel="stylesheet">
-  <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-firestore.js"></script>
 </head>
 <body>
   <main>
-    <h1>List of notes</h1>
+    <h1>Notes</h1>
+    <section class="user">
+      <h2 class="note__user__email"></h2>
+      <form action="" method="POST">
+        <button class="note__user__logout" type="submit">Log Out</button>
+      </form>
+    </section>
     <div class="notes__wrapper">
       <section class="notes">
-        <h2 class="visually-hidden">Your notes</h2>
-        <div class="note">
-          <h3 class="note__title">My first note</h3>
-          <p class="note__describe">do app note Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita in non, ducimus quos, impedit laboriosam molestias eaque corrupti recusandae adipisci, beatae explicabo deserunt possimus tempore dolorum magni earum enim voluptate.</p>
-          <p class="note__date">25.12.1996</p>
-          <p class="note__time">25h 25m 25s</p>
-        </div>
-        <div class="note">
-          <h3 class="note__title">My first note</h3>
-          <p class="note__describe">do app note Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita in non, ducimus quos, impedit laboriosam molestias eaque corrupti recusandae adipisci, beatae explicabo deserunt possimus tempore dolorum magni earum enim voluptate.</p>
-          <p class="note__date">25.12.1996</p>
-          <p class="note__time">25h 25m 25s</p>
-        </div>
-        <div class="note">
-          <h3 class="note__title">My first note</h3>
-          <p class="note__describe">do app note Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita in non, ducimus quos, impedit laboriosam molestias eaque corrupti recusandae adipisci, beatae explicabo deserunt possimus tempore dolorum magni earum enim voluptate.</p>
-          <p class="note__date">25.12.1996</p>
-          <p class="note__time">25h 25m 25s</p>
-        </div>
-        <div class="note">
-          <h3 class="note__title">My first note</h3>
-          <p class="note__describe">do app note Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita in non, ducimus quos, impedit laboriosam molestias eaque corrupti recusandae adipisci, beatae explicabo deserunt possimus tempore dolorum magni earum enim voluptate.</p>
-          <p class="note__date">25.12.1996</p>
-          <p class="note__time">25h 25m 25s</p>
-        </div>
+        <h2 class="notes">Your notes</h2>
       </section>
 
       <div class="add__note">
@@ -49,15 +33,15 @@
 
    <div class="dialog" role="dialog" aria-labelledby="dialog_title">
       <div class="dialog__window">
-        <form action="" method="" class="dialog__form" id="addNodeForm">
+        <form action="" method="POST" class="dialog__form" id="addNodeForm">
           <p>
             <label>
               <span class="visually-hidden">Note title</span>
-              <input type="text" placeholder="title">
+              <input type="text" placeholder="title" class="dialog__input-title">
             </label>
           </p>
           <p>
-            <textarea name="textnote" form="addNodeForm"></textarea>
+            <textarea name="textnote" form="addNodeForm" class="dialog__input-text"></textarea>
           </p>
           <button class="modal__btn-add" type="submit">Add</button>
           <button class="modal__btn-close" type="button">Close</button>
@@ -66,8 +50,9 @@
       <div class="dialog__mask"></div>
     </div>
 
-<script src="js/database.js"></script>
+<script src="scripts/modal.js"></script>
+<script src="scripts/index.js"></script>
 <script src="../node_modules/wicg-inert/dist/inert.min.js"></script>
-<script src="js/modal.js"></script>
+<script src="../node_modules/create-elements/Cr.js"></script>
 </body>
 </html>

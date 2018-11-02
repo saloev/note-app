@@ -19,6 +19,7 @@
   "author": "saloev",
   "license": "ISC",
   "dependencies": {
+    "create-elements": "^1.1.9",
     "wicg-inert": "^2.0.0"
   },
   "devDependencies": {
