@@ -2,7 +2,6 @@
   "name": "note-simple-app",
   "version": "1.0.0",
   "description": "app for making note",
-  "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,6 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "create-elements": "^1.1.9",
+    "moment": "^2.22.2",
     "wicg-inert": "^2.0.0"
   },
   "devDependencies": {

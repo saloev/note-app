@@ -12,9 +12,10 @@ html {
 
 body {
   background: #ffd200;
- /* background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);*/
+
   font-family: 'Raleway', sans-serif;
   font-size: 1em;
+  color: #000;
 }
 
 main {
@@ -42,7 +43,7 @@ button:focus {
   cursor: pointer;
   background: #fff;
   color: #000;
-   border-color: #000;
+  border-color: #000;
 }
 
 .visually-hidden {
@@ -64,7 +65,7 @@ button:focus {
   padding: 5px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .notes h2 {
@@ -99,7 +100,8 @@ button:focus {
 
 .note__date, .note__time {
   font-style: italic;
-  font-weight: 500;
+  font-weight: 700;
+  color: #071017;
 }
 
 .note__delete {

@@ -34,6 +34,9 @@
   // element note describe
   const noteDescribe = document.querySelector('.dialog__input-text');
 
+  // return how many days(minutes, hours etc) has passed
+  const howManyTimesPassed = from => moment(from).fromNow();// eslint-disable-line no-undef
+
   // delete note from Firestore
   const deleteNoteFromFirestore = (userId, docId) => (e) => {
     // don't reload the page
@@ -52,8 +55,8 @@
 
   // adding new 'note' to DOM
   const renderNotes = (userId, doc) => {
-    // create new Node(it' new 'note')
     /*eslint-disable */
+    // create new Node(it' new 'note')
     const newNote = Cr.elm('div', { class: 'note', id: `note__${doc.id}` }, [
       Cr.elm('h3', { class: 'note__title' }, [
         Cr.txt(doc.data().title),
@@ -62,10 +65,10 @@
         Cr.txt(doc.data().describe),
       ]),
       Cr.elm('p', { class: 'note__date' }, [
-        Cr.txt(''),
+        Cr.txt(doc.data().date),
       ]),
       Cr.elm('p', { class: 'note__time' }, [
-        Cr.txt(''),
+        Cr.txt(howManyTimesPassed(doc.data().time)),
       ]),
       Cr.elm('button', { class: 'note__delete', type: 'submit', events: [['click', deleteNoteFromFirestore(userId, doc.id)]] }, [
         Cr.txt('Delete note'),
@@ -119,6 +122,10 @@
     const title = noteTitle.value;
     // describe text of 'note'
     const describe = noteDescribe.value;
+    // get added date
+    const date = moment().format('Do MMMM YYYY');// eslint-disable-line no-undef
+    // get added time and convert it to ISO format for correct working fromNow() method
+    const time = moment().toISOString();// eslint-disable-line no-undef
 
     // if user dont enter anything
     if (!noteTitle || !noteDescribe) {
@@ -140,6 +147,8 @@
       .set({
         title,
         describe,
+        date,
+        time,
       })
       .then(() => {
         console.log('Document successfully written!');
