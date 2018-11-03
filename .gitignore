@@ -7,4 +7,6 @@ firebase.*
 .firebaserc
 firestore.indexes.js
 firestore.rules
+firestore.indexes.json
+
 
