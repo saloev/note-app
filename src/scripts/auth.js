@@ -71,7 +71,7 @@
     if (user) {
       // succsesfull log in(or sign up)
       btnLogOut.classList.remove('hidden');
-      window.location = 'index.html';
+      window.location = 'main.html';
     } else {
       btnLogOut.classList.add('hidden');
     }

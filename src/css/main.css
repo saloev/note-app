@@ -1,0 +1,162 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  background: #ffd200;
+
+  font-family: 'Raleway', sans-serif;
+  font-size: 1em;
+  color: #071017;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  font-family: 'Raleway', sans-serif;
+}
+
+button {
+  padding: 10px;
+  background: #071017;
+  border: 2px solid #fff;
+  border-radius: 5px;
+
+  color: #fff;
+
+  transition: 0.3s linear all;
+}
+
+button:hover,
+button:focus {
+  cursor: pointer;
+  background: #fff;
+  color: #071017;
+  border-color: #071017;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important; 
+  width: 1px !important; 
+  overflow: hidden;
+}
+
+.filter {
+  margin-top: 20px;
+  padding: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filter select {
+  padding: 5px;
+
+  background: #071017;
+  border: 2px solid #fff;
+
+  font-weight: 700;
+  color: #fff;
+ 
+  transition: 0.3s linear all;
+}
+
+.filter select:hover,
+.filter select:focus {
+  background: #fff;
+  border: 2px solid #071017;
+  outline: none;
+
+  color: #071017;
+}
+
+.filter option {
+  font-weight: 700;
+};
+
+.notes__wrapper {
+  margin: 20px 0;
+}
+
+.filter__asc,
+.filter__desc {
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.notes__title{
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+
+.note {
+  max-width: 30%;
+  margin-right: 5px;
+  margin-left: 0;
+  margin-bottom: 10px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+
+  border: 2px solid #fff;
+  text-align: center;
+
+  transition: 0.3s ease-out all;
+}
+
+.note:hover {
+  border: 2px solid #071017;
+}
+
+.note p {
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+
+.note__title {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.note__describe {
+  font-family: 'Mali', cursive;
+}
+
+.note__date, .note__time {
+  font-style: italic;
+  font-weight: 700;
+  color: #071017;
+}
+
+.note__delete {
+  margin-top: auto;
+}
+
+.add__note {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+/*for filtering*/
+.hidden {
+  display: none;
+}
