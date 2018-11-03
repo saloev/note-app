@@ -2,7 +2,7 @@
 A note app(check out [note-app website](https://appnote-12c8c.firebaseapp.com/)) with [Firebase](https://firebase.google.com)
 ---
  Run application locally:
- 1. **npm (recomendat way)**
+ 1. **npm (recommended way)**
  
     ``` npm i note-simple-app ```
     
