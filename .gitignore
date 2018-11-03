@@ -1,6 +1,10 @@
 node_modules/
 dist/
 *.log
-.firebase
 firebase.*
-firebase.json
+.firebase*
+.firebase/
+.firebaserc
+firestore.indexes.js
+firestore.rules
+
