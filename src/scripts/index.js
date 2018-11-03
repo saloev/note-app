@@ -24,15 +24,34 @@
   // element for log out user
   const userLogOutBtn = document.querySelector('.note__user__logout');
 
-
-  // elemnt for add childs (add 'notes')
-  const noteSection = document.querySelector('.notes');
   // element for add 'notes'
   const addNoteBtn = document.querySelector('.modal__btn-add');
   // element note title
   const noteTitle = document.querySelector('.dialog__input-title');
   // element note describe
   const noteDescribe = document.querySelector('.dialog__input-text');
+
+  // for adding sorted 'notes' by time from latest to newest
+  const ascElem = document.querySelector('.filter__asc');
+  // for adding sorted 'notes' by time from newest to latest
+  const descElem = document.querySelector('.filter__desc');
+  // for adding  event 'changing filter type'
+  const filter = document.querySelector('#select__filter-type');
+
+  // by default we show 'notes' sorted by time from latest to newest
+  // and hidden 'notes' sorted by time from newest to latest
+  descElem.classList.add('hidden');
+
+  // show or hidden 'notes' depending on user click
+  const showFiltredNotes = (e) => {
+    if (e.target.value === 'desc') {
+      ascElem.classList.add('hidden');
+      descElem.classList.remove('hidden');
+    } else {
+      descElem.classList.add('hidden');
+      ascElem.classList.remove('hidden');
+    }
+  };
 
   // return how many days(minutes, hours etc) has passed
   const howManyTimesPassed = from => moment(from).fromNow();// eslint-disable-line no-undef
@@ -46,7 +65,7 @@
     db.collection('users').doc(userId).collection('notes').doc(docId)
       .delete()
       .then(() => {
-        console.log('Document successfully deleted!');
+        // console.log('Document successfully deleted!');
       })
       .catch((error) => {
         console.error('Error removing document: ', error);
@@ -54,8 +73,9 @@
   };
 
   // adding new 'note' to DOM
-  const renderNotes = (userId, doc) => {
+  const renderNotes = (userId, doc, sortType) => {
     /*eslint-disable */
+    const parentElement = sortType ? descElem : ascElem;
     // create new Node(it' new 'note')
     const newNote = Cr.elm('div', { class: 'note', id: `note__${doc.id}` }, [
       Cr.elm('h3', { class: 'note__title' }, [
@@ -77,7 +97,7 @@
     /* eslint-enable */
 
     // add new 'note' to DOM
-    noteSection.appendChild(newNote);
+    parentElement.appendChild(newNote);
   };
 
   // remove Node from Dom after deleting it from Firestore
@@ -88,29 +108,49 @@
     removedElement.parentNode.removeChild(removedElement);
   };
 
-  // realtime updates Firestore
+  // realtime updates Firestore(sorted by time from latest to newest)
   const realtimeUpdatesFirestore = (userId) => {
     // 'listen' to a collection 'notes'
-    db.collection('users').doc(userId).collection('notes').onSnapshot((snapshot) => {
-      snapshot.docChanges().forEach((change) => {
+    db.collection('users').doc(userId).collection('notes').orderBy('time')
+      .onSnapshot((snapshot) => {
+        snapshot.docChanges().forEach((change) => {
         // if add doceument
-        if (change.type === 'added') {
-          console.log('New city: ', change.doc.data());
+          if (change.type === 'added') {
           // we render document('note') (add it to DOM)
-          renderNotes(userId, change.doc);
-        }
-        // if document modifed
-        if (change.type === 'modified') {
-          console.log('Modified city: ', change.doc.data());
-        }
-        // if document removed
-        if (change.type === 'removed') {
-          console.log('Removed city: ', change.doc.data());
+            renderNotes(userId, change.doc);
+          }
+          // if document modifed
+          if (change.type === 'modified') {
+          //
+          }
+          // if document removed
+          if (change.type === 'removed') {
           // removed document('note') (delete it from DOM)
-          removedNoteFromDOM(change.doc);
-        }
+            removedNoteFromDOM(change.doc);
+          }
+        });
       });
-    });
+
+    // (sorted by time from newest to latest)
+    db.collection('users').doc(userId).collection('notes').orderBy('time', 'desc')
+      .onSnapshot((snapshot) => {
+        snapshot.docChanges().forEach((change) => {
+        // if add doceument
+          if (change.type === 'added') {
+          // we render document('note') (add it to DOM)
+            renderNotes(userId, change.doc, 'desc');
+          }
+          // if document modifed
+          if (change.type === 'modified') {
+          //
+          }
+          // if document removed
+          if (change.type === 'removed') {
+          // removed document('note') (delete it from DOM)
+            removedNoteFromDOM(change.doc);
+          }
+        });
+      });
   };
 
   // add 'note' to Firebase (Database)
@@ -179,7 +219,7 @@
       // 'listen' to a document
       realtimeUpdatesFirestore(user.uid);
     } else {
-      console.log('eror');
+      console.log('error');
       // redirect user to auth page
       window.location = 'auth.html';
     }
@@ -197,4 +237,6 @@
 
   // listener for log out user
   userLogOutBtn.addEventListener('click', logOutUser);
+  // listener for show and hidden sorted 'notes'
+  filter.addEventListener('change', showFiltredNotes);
 }());

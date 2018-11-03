@@ -15,7 +15,7 @@ body {
 
   font-family: 'Raleway', sans-serif;
   font-size: 1em;
-  color: #000;
+  color: #071017;
 }
 
 main {
@@ -29,7 +29,7 @@ h1, h2, h3 {
 
 button {
   padding: 10px;
-  background: #000;
+  background: #071017;
   border: 2px solid #fff;
   border-radius: 5px;
 
@@ -42,8 +42,8 @@ button:hover,
 button:focus {
   cursor: pointer;
   background: #fff;
-  color: #000;
-  border-color: #000;
+  color: #071017;
+  border-color: #071017;
 }
 
 .visually-hidden {
@@ -57,19 +57,53 @@ button:focus {
   overflow: hidden;
 }
 
+.filter {
+  margin-top: 20px;
+  padding: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filter select {
+  padding: 5px;
+
+  background: #071017;
+  border: 2px solid #fff;
+
+  font-weight: 700;
+  color: #fff;
+ 
+  transition: 0.3s linear all;
+}
+
+.filter select:hover,
+.filter select:focus {
+  background: #fff;
+  border: 2px solid #071017;
+  outline: none;
+
+  color: #071017;
+}
+
+.filter option {
+  font-weight: 700;
+};
+
 .notes__wrapper {
   margin: 20px 0;
 }
 
-.notes {
+.filter__asc,
+.filter__desc {
   padding: 5px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.notes h2 {
-  width: 100%;
+.notes__title{
+  display: flex;
+  justify-content: center;
   border: none;
 }
 
@@ -80,8 +114,14 @@ button:focus {
   margin-bottom: 10px;
   padding: 5px;
 
-  border: 1px solid #000;
+  border: 2px solid #fff;
   text-align: center;
+
+  transition: 0.3s ease-out all;
+}
+
+.note:hover {
+  border: 2px solid #071017;
 }
 
 .note p {
@@ -112,4 +152,9 @@ button:focus {
   margin-top: 40px;
   display: flex;
   justify-content: center;
+}
+
+/*for filtering*/
+.hidden {
+  display: none;
 }

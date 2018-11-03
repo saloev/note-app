@@ -1,6 +1,7 @@
 .auth__title {
   text-align: center;
 }
+
 .auth__form {
   width: 50%;
   margin: 0 auto;
@@ -28,10 +29,10 @@
   margin-top: 10px;
   padding: 10px;
 
-  border: 2px solid #000;
+  border: 2px solid #071017;
   border-radius: 5px;
   outline-style: none;
-  background: #000;
+  background: #071017;
   color: #fff;
 
   transition: 0.3s linear all;
@@ -52,3 +53,21 @@
 .auth__logout.hidden {
   display: none;
 }
+
+/*show error*/
+.hide__error {
+  padding: 0;
+  margin: 0;
+  color: #ff6766;
+
+  visibility: hidden; 
+  opacity: 0;
+
+  transition: 1s all ease-in-out;
+}
+
+.show__error {
+  visibility: visible;
+  opacity: 1;
+}
+

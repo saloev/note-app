@@ -18,6 +18,9 @@
   const btnSignUp = loginForm.querySelector('.auth__signup');
   const btnLogOut = loginForm.querySelector('.auth__logout');
 
+  // for showing error
+  const showError = loginForm.querySelector('.hide__error');
+
   // verify user after log in
   const verifyUser = (e) => {
     e.preventDefault();
@@ -30,7 +33,12 @@
     const user = auth.signInWithEmailAndPassword(email, pass);// return promise
 
     // erors sign in
-    user.catch(error => console.log(error.message));
+    user.catch(() => {
+      showError.classList.add('show__error');
+      showError.textContent = 'Incorrect email address or password';
+      window.setTimeout(() => showError.classList.remove('show__error'), 5000);
+      // console.error(error.message)
+    });
   };
 
   // create an account after sign up
@@ -45,7 +53,12 @@
     const user = auth.createUserWithEmailAndPassword(email, pass);// return promise
 
     // erors sign up
-    user.catch(error => console.log(error.message));
+    user.catch(() => {
+      showError.classList.add('show__error');
+      showError.textContent = 'Incorrect email address or password';
+      window.setTimeout(() => showError.classList.remove('show__error'), 5000);
+      // console.error(error.message)
+    });
   };
 
   // log out user
@@ -57,11 +70,9 @@
   const checkUser = (user) => {
     if (user) {
       // succsesfull log in(or sign up)
-      console.log(user.email);
       btnLogOut.classList.remove('hidden');
       window.location = 'index.html';
     } else {
-      console.log('error');
       btnLogOut.classList.add('hidden');
     }
   };
