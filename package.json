@@ -1,6 +1,6 @@
 {
   "name": "note-simple-app",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "app for making note",
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",

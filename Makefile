@@ -9,3 +9,6 @@ publish:
 
 lint:
 		npx eslint .
+
+host:
+		firebase deploy

@@ -33,11 +33,19 @@
     const user = auth.signInWithEmailAndPassword(email, pass);// return promise
 
     // erors sign in
-    user.catch(() => {
+    user.catch((error) => {
       showError.classList.add('show__error');
-      showError.textContent = 'Incorrect email address or password';
+      const errorMessage = error.message ? error.message : '';
+      // The email of the user's account used.
+      const email = error.email ? error.email : '';
+      // The firebase.auth.AuthCredential type that was used.
+      const credential = error.credential ? error.credential : '';
+
+      showError.textContent = `${errorMessage}
+       ${email} 
+       ${credential}`;
+
       window.setTimeout(() => showError.classList.remove('show__error'), 5000);
-      // console.error(error.message)
     });
   };
 
@@ -53,9 +61,18 @@
     const user = auth.createUserWithEmailAndPassword(email, pass);// return promise
 
     // erors sign up
-    user.catch(() => {
+    user.catch((error) => {
       showError.classList.add('show__error');
-      showError.textContent = 'Incorrect email address or password';
+      const errorMessage = error.message ? error.message : '';
+      // The email of the user's account used.
+      const email = error.email ? error.email : '';
+      // The firebase.auth.AuthCredential type that was used.
+      const credential = error.credential ? error.credential : '';
+
+      showError.textContent = `${errorMessage}
+       ${email} 
+       ${credential}`;
+
       window.setTimeout(() => showError.classList.remove('show__error'), 5000);
       // console.error(error.message)
     });
@@ -71,7 +88,7 @@
     if (user) {
       // succsesfull log in(or sign up)
       btnLogOut.classList.remove('hidden');
-      window.location = 'main.html';
+      window.location = 'index.html';
     } else {
       btnLogOut.classList.add('hidden');
     }

@@ -221,7 +221,7 @@
     } else {
       console.log('error');
       // redirect user to auth page
-      window.location = 'index.html';
+      window.location = 'auth.html';
     }
   });
 
@@ -232,7 +232,7 @@
     // log out user
     firebase.auth().signOut();// eslint-disable-line no-undef
     // redirect to auth page
-    window.location = 'index.html';
+    window.location = 'auth.html';
   };
 
   // listener for log out user
