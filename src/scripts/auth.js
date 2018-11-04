@@ -37,12 +37,12 @@
       showError.classList.add('show__error');
       const errorMessage = error.message ? error.message : '';
       // The email of the user's account used.
-      const email = error.email ? error.email : '';
+      const errorEmail = error.email ? error.email : '';
       // The firebase.auth.AuthCredential type that was used.
       const credential = error.credential ? error.credential : '';
 
       showError.textContent = `${errorMessage}
-       ${email} 
+       ${errorEmail} 
        ${credential}`;
 
       window.setTimeout(() => showError.classList.remove('show__error'), 5000);
@@ -65,12 +65,12 @@
       showError.classList.add('show__error');
       const errorMessage = error.message ? error.message : '';
       // The email of the user's account used.
-      const email = error.email ? error.email : '';
+      const errorEmail = error.email ? error.email : '';
       // The firebase.auth.AuthCredential type that was used.
       const credential = error.credential ? error.credential : '';
 
       showError.textContent = `${errorMessage}
-       ${email} 
+       ${errorEmail} 
        ${credential}`;
 
       window.setTimeout(() => showError.classList.remove('show__error'), 5000);
